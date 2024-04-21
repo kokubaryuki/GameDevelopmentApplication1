@@ -1,5 +1,6 @@
 #pragma once
 
+//絶対値を求める
 template<typename T>
 T Abs(T value)
 {
@@ -11,12 +12,12 @@ T Abs(T value)
 	}
 	else
 	{
-		result=-value
+		result = -value;
 	}
 	return result;
 }
 
-
+//引数同士を確認して、大きい値を求める
 template <typename T>
 T MAX(T a, T b)
 {
@@ -34,14 +35,14 @@ T MAX(T a, T b)
 }
 
 
-
+//引数同士を確認して、小さい値を求める
 template<typename T>
 T Min(T a, T b)
 {
 	T result;
 	if (a > b)
 	{
-		result=b
+		result = b;
 	}
 	else
 	{

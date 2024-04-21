@@ -58,7 +58,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 	{
 		//エラー情報をLog.txtに出力する
 		OutputDebugString(error_log);
-
 	    //異常状態に変更する
 		result = -1;
 	}

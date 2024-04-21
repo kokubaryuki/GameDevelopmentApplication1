@@ -59,10 +59,10 @@ void Player::Update()
 void Player::Draw()const
 {
 	//プレイヤー画像の描画
-	DrawRotaGraphf(location.x, location.y, 1.0, radian, image, TRUE, flip_flag);
+	DrawRectGraphF(location.x, location.y, 1.0, radian, image, TRUE, flip_flag);
 
 	//デバック用
-	#if_DEBUG
+#if_DEBUG
 		//当たり判定の可視化
 		Vector2D box_collision_upper_left = location - (Vector2D(1.0f) * (float)scale / 2.0f);
 	    Vector2D box_collision_lower_right = location + (Vector2D(1.0f) * (float)scale / 2.0f);
@@ -71,7 +71,7 @@ void Player::Draw()const
 			box_collision_lower_right.x, box_collision_lower_right.y,
 			GetColor(255, 0, 0), FALSE);
 
-#elif
+#endif
 }
 
 
@@ -115,7 +115,7 @@ void Player::Movement()
 	}
 
 	//現在の位置座標に速さを加算する
-	location == velocity;
+	location += velocity;
 }
 
 

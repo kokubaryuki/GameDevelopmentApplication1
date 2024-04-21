@@ -1,5 +1,5 @@
 #include"Scene.h"
-#include"../Objects/Player/Player.h"
+#include"../Object/Player/Player.h"
 
 //コンストラクタ
 Scene::Scene() :objects()
