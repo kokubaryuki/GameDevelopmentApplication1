@@ -86,12 +86,14 @@ void Player::Movement()
 		//上とは逆(だんだん減速していく)
 		else
 		{
+			//右方向を減速する
 			if (velocity.x > 1e-6f)
 			{
-				float calc_speed = velocity.x - 0.1f;
+				float calc_speed = velocity.x -0.1f;
 				velocity.x = Min<float>(MAX<float>(calc_speed, 0.0f), velocity.x);
 			}
 
+			//左方向を減速する
 			else if (velocity.x < -1e-6f)
 			{
 				float calc_speed = velocity.x + 0.1f;
@@ -100,19 +102,21 @@ void Player::Movement()
 
 		}
 
-
+		//プレイヤーの移動範囲
 		if (location.x < (box_size.x / 2.0f))
 		{
 			velocity.x = 0.0f;
 			location.x = box_size.x / 2.0f;
 		}
+
+		//プレイヤーが画面外にいかないようにする
 		else if(location.x>(640.0f-box_size.x/2.0f))
 		{
 			velocity.x = 0.0f;
 			location.x = 640.0f - box_size.x / 2.0f;
 		}
 
-
+		//プレイヤーの位置と速度の設定
 		location += velocity;
 }
 
