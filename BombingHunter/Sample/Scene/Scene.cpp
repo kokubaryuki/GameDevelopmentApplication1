@@ -19,7 +19,8 @@ void Scene::Initialize()
 {
 	//プレイヤーを生成する
 	CreateObject<Player>(Vector2D(350.0f, 100.0f));
-	CreateObject<Enemy>(Vector2D(350.0f, 400.0f));
+	//敵の位置情報
+	CreateObject<Enemy>(Vector2D(320.0f, 240.0f));
 }
 
 //更新処理

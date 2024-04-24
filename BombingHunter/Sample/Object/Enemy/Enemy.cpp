@@ -22,7 +22,7 @@ void Enemy::Initialize()
 {
 	//画像の読込み
 	animation[0] = LoadGraph("Resource/Images/BoxEnemy/1.png");
-	animation[1] = LoadGraph("Resource/Images/BoxEnemy/1.png");
+	animation[1] = LoadGraph("Resource/Images/BoxEnemy/2.png");
 	//エラーチェック
 	if (animation[0] == -1 || animation[1] == -1)
 	{
@@ -31,7 +31,7 @@ void Enemy::Initialize()
 
 	//向きの設定
 	radian = 0.0f;
-	box_size = Vector2D(32.0f);//ボックスのサイズを設定する
+	box_size = Vector2D(240.0f);//ボックスのサイズを設定する
 	location = box_size;
 
 	//初期化処理
@@ -42,8 +42,10 @@ void Enemy::Initialize()
 //更新処理
 void Enemy::Update()
 {
+	//敵が右から左に移動するときの速さを設定するところ
 	location.x += 1.0f;
 
+	//敵が端に行った時、左恥に戻る(移動距離がリセット)
 	if (location.x >= 640.0f)
 	{
 		location.x = 0.0f;
@@ -110,8 +112,10 @@ void Enemy::AnimeControl()
 	//フレームカウントを加算する
 	animation_count++;
 
+	//60フレーム＝1秒
+
 	//60フレーム目に達したら
-	if (animation_count >= 60)
+	if (animation_count >= 2)
 	{
 		//カウントのリセット
 		animation_count = 0;

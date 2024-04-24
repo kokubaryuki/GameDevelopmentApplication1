@@ -17,7 +17,7 @@ GameObject::~GameObject()
 void GameObject::Initialize()
 {
 	color = GetColor(255, 0, 0);//色を赤色にする
-	box_size = Vector2D(32.0f);//ボックスのサイズを設定する
+	box_size = Vector2D(100.0f);//ボックスのサイズを設定する
 	location = box_size;
 }
 
