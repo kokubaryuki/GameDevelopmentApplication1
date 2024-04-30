@@ -34,6 +34,7 @@ void Enemy::Initialize()
 	box_size = Vector2D(0.0f,490.0f);//ボックスの位置の設定
 	location = box_size;
 
+
 	//初期化処理
 	image = animation[0];
 }

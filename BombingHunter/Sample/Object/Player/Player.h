@@ -9,6 +9,9 @@ private:
 	int animation_count;  //アニメーション時間
 	int flip_flag;//反転フラグ
 
+	Vector2D location;
+	Vector2D box_size;
+
 
 public:
 	Player();
