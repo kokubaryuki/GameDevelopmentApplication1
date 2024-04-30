@@ -10,8 +10,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 	//Windowモードで起動
 	ChangeWindowMode(TRUE);
 
+	SetWindowSizeChangeEnableFlag(TRUE, TRUE);
+
 	//ウィンドウサイズ（横：640px,縦：480px）を設定
-	SetGraphMode(640, 480, 32);
+	SetGraphMode(960,720,32);
 
 	//DXライブラリーの初期化
 	if (DxLib_Init() == -1)
@@ -46,6 +48,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
 			//シーンの描画
 			scene->Draw();
+
 
 			//裏画面の内容を表画面に反映する
 			ScreenFlip();

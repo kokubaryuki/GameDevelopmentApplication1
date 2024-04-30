@@ -1,6 +1,7 @@
 #include"Scene.h"
 #include"../Object/Player/Player.h"
 #include"../Object/Enemy/Enemy.h"
+#include"DxLib.h"
 
 //コンストラクタ
 Scene::Scene() :objects()
@@ -17,10 +18,19 @@ Scene::~Scene()
 //初期化処理
 void Scene::Initialize()
 {
+	//背景画像
+	background_image = LoadGraph("Resource/Images/BackGround.png");
+
+	if (background_image == -1)
+	{
+		throw("Resource/Images/BackGround.pngがありません\n");
+	}
+
+
 	//プレイヤーを生成する
-	CreateObject<Player>(Vector2D(350.0f, 100.0f));
+	CreateObject<Player>(Vector2D(350.0f, 50.0f));
 	//敵の位置情報
-	CreateObject<Enemy>(Vector2D(320.0f, 400.0f));
+	CreateObject<Enemy>(Vector2D(400.0f, 400.0f));
 }
 
 //更新処理
@@ -37,6 +47,9 @@ void Scene::Update()
 //描画処理
 void Scene::Draw()const
 {
+
+	DrawGraph(0, 0, background_image, FALSE);
+
 	//シーンに存在するオブジェクトの描画処理
 	for (GameObject* obj : objects)
 	{

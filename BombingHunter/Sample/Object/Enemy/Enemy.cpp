@@ -31,7 +31,7 @@ void Enemy::Initialize()
 
 	//向きの設定
 	radian = 0.0f;
-	box_size = Vector2D(240.0f);//ボックスのサイズを設定する
+	box_size = Vector2D(0.0f,490.0f);//ボックスの位置の設定
 	location = box_size;
 
 	//初期化処理
@@ -46,7 +46,7 @@ void Enemy::Update()
 	location.x += 1.0f;
 
 	//敵が端に行った時、左恥に戻る(移動距離がリセット)
-	if (location.x >= 640.0f)
+	if (location.x >= 960.0f)
 	{
 		location.x = 0.0f;
 	}

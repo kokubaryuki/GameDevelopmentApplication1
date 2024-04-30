@@ -5,9 +5,10 @@
 #include"../Object/Gameobject.h"
 
 class Scene
-{
+{	
 private:
 	std::vector<GameObject*>objects;
+	int background_image;
 
 public:
 	Scene();
@@ -20,6 +21,7 @@ public:
 	void Finalize();
 
 private:
+
 	//オブジェクト生成処理
 	template<class T>
 	T* CreateObject(const Vector2D& location)
