@@ -73,8 +73,7 @@ void Player::Movement()
 	{
 		float max_speed = Abs<float>((5.0f * 5.0 * direction));
 		velocity.x += 0.5 * direction;
-		velocity.x = Min<float>(Max<float>(velocity.x, -max_speed, 
-			max_speed));
+		velocity.x = Min<float>(Max<float>(velocity.x, -max_speed), max_speed);
 
 	}
 	else

@@ -1,0 +1,50 @@
+#pragma once
+
+//マクロ定義
+#define D_KEYCODE_MAX (256)//キーコード最大数
+
+//入力制御クラス
+class Inputcontrol
+{
+private:
+//自クラスのポインタ（アドレスの先ｎインスタンスを生成する）
+	static Inputcontrol* instance;
+
+	//キーボード入力値
+	char now_key[D_KEYCODE_MAX]; //現在の入力値
+	char old_key[D_KEYCODE_MAX]; //前回の入力値
+
+private:
+	//コンストラクタをprivateにすることで、
+	//自クラスのメンバ関数でしかインスタンスを生成できないようにする
+	Inputcontrol() = default;
+
+	//コピーガード
+	//クラス外でインスタンスを生成して渡すことができないようにする
+	Inputcontrol(Inputcontrol& v) = delete;
+	Inputcontrol& operator=(const Inputcontrol& v) = delete;
+	//~コピーガード
+
+public:
+	~Inputcontrol() = default;
+
+public:
+	//インスタンス取得する処理
+	static Inputcontrol* GetInstance();
+	//インスタンス削除する処理
+	static void Deleteinstance();
+
+public:
+	//キー入力更新処理
+	void Update();
+
+	//キー入力状態を取得する
+	bool GetKey(int key_code)const;      //押している間
+	bool GetKeyDown(int key_code) const; //押した瞬間
+	bool GetKeyUp(int key_code) const;   //離した瞬間
+
+private:
+	//キー入力の範囲を確認する
+	bool CheckKeyCodeRange(int key_code) const;
+
+};

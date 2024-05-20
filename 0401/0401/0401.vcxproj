@@ -139,7 +139,6 @@
     <ClCompile Include="Objects\GameObject.cpp" />
     <ClCompile Include="Objects\Player\Player.cpp" />
     <ClCompile Include="Utility\Vector2D.cpp" />
-    <ClCompile Include="Utility\UserTemplate.cpp" />
     <ClCompile Include="Utility\ResourceMabager.cpp" />
     <ClCompile Include="Utility\InputControl.cpp" />
   </ItemGroup>
@@ -149,6 +148,7 @@
     <ClInclude Include="Utility\Vector2D.h" />
     <ClInclude Include="Utility\ResourceMabager.h" />
     <ClInclude Include="Utility\InputControl.h" />
+    <ClInclude Include="Utility\UserTemplate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

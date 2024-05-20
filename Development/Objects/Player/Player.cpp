@@ -6,10 +6,9 @@
 Player::Player() :animation_count(0), flip_flag(FALSE)
 {
 	animation[0] = NULL;
-	animation[1] = NULL; 
+	animation[1] = NULL;
 
 }
-
 
 //デストラクタ
 Player::~Player()
@@ -23,6 +22,7 @@ void Player::Initialize()
 	//画像の読込み
 	animation[0] = LoadGraph("Resource/Images/Tri-pilot/1.png");
 	animation[1] = LoadGraph("Resource/Images/Tri-pilot/2.png");
+
 	//エラーチェック
 	if (animation[0] == -1 || animation[1] == -1)
 	{
@@ -33,7 +33,7 @@ void Player::Initialize()
 	radian = 0.0f;
 
 	//大きさの設定
-	scale =64.0f;
+	scale = 64.0f;
 
 	//初期化処理
 	image = animation[0];
@@ -53,7 +53,6 @@ void Player::Update()
 }
 
 
-
 //描画処理
 void Player::Draw()const
 {
@@ -64,10 +63,10 @@ void Player::Draw()const
 #ifdef _DEBUG
 
 		//当たり判定の可視化
-		Vector2D ul = location - (scale / 2.0f);
-	    Vector2D br = location + (scale / 2.0f);
+	Vector2D ul = location - (scale / 2.0f);
+	Vector2D br = location + (scale / 2.0f);
 
-		DrawBoxAA(ul.x,ul.y,br.x, br.y,GetColor(255, 0, 0), FALSE);
+	DrawBoxAA(ul.x, ul.y, br.x, br.y, GetColor(255, 0, 0), FALSE);
 
 #endif
 }
@@ -104,7 +103,7 @@ void Player::Movement()
 		flip_flag = TRUE;
 	}
 
-	else if(InputControl::GetKey(KEY_INPUT_RIGHT))
+	else if (InputControl::GetKey(KEY_INPUT_RIGHT))
 	{
 		velocity.x += 5.0f;
 		flip_flag = FALSE;
@@ -135,8 +134,6 @@ void Player::Movement()
 }
 
 
-
-
 //アニメーション制御
 void Player::AnimeControl()
 {
@@ -150,7 +147,7 @@ void Player::AnimeControl()
 		animation_count = 0;
 
 		//画像の切り替え
-		if(image==animation[0])
+		if (image == animation[0])
 		{
 			image = animation[1];
 		}
@@ -159,7 +156,6 @@ void Player::AnimeControl()
 			image = animation[0];
 		}
 	}
-
 }
 
 

@@ -27,10 +27,10 @@
     <ClCompile Include="Appmain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Object\GameObject.cpp">
+    <ClCompile Include="Objects\GameObject.cpp">
       <Filter>ソース ファイル\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Object\Player\Player.cpp">
+    <ClCompile Include="Objects\Player\Player.cpp">
       <Filter>ソース ファイル\Objects\Player</Filter>
     </ClCompile>
     <ClCompile Include="Scene\Scene.cpp">
@@ -42,15 +42,15 @@
     <ClCompile Include="Utility\Vector2D.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Object\Enemy\Enemy.cpp">
+    <ClCompile Include="Objects\Enemy\Enemy.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Object\GameObject.h">
+    <ClInclude Include="Objects\GameObject.h">
       <Filter>ソース ファイル\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Object\Player\Player.h">
+    <ClInclude Include="Objects\Player\Player.h">
       <Filter>ソース ファイル\Objects\Player</Filter>
     </ClInclude>
     <ClInclude Include="Scene\Scene.h">
@@ -62,7 +62,7 @@
     <ClInclude Include="Utility\Vector2D.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Object\Enemy\Enemy.h">
+    <ClInclude Include="Objects\Enemy\Enemy.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

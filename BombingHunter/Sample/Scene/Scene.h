@@ -2,7 +2,7 @@
 
 #include<vector>
 #include<string>
-#include"../Object/Gameobject.h"
+#include"../Objects/GameObject.h"
 
 class Scene
 {	
@@ -21,6 +21,9 @@ public:
 	void Finalize();
 
 private:
+
+	//当たり判定チェック処理
+	void HitCheckObject(GameObject* a, GameObject* b);
 
 	//オブジェクト生成処理
 	template<class T>

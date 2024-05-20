@@ -31,27 +31,33 @@ void Enemy::Initialize()
 
 	//向きの設定
 	radian = 0.0f;
-	box_size = Vector2D(0.0f,490.0f);//ボックスの位置の設定
-	location = box_size;
 
+	box_size = Vector2D(0.0f, 490.0f);//ボックスの位置の設定
 
 	//初期化処理
 	image = animation[0];
+
+	//初期化進行方向の設定
+	direction = Vector2D(1.0f, -0.5f);
+
 }
 
 
 //更新処理
 void Enemy::Update()
 {
-	//敵が右から左に移動するときの速さを設定するところ
-	location.x += 1.0f;
+//	//敵が右から左に移動するときの速さを設定するところ
+//	location.x += 1.0f;
+//
+//	//敵が端に行った時、左恥に戻る(移動距離がリセット)
+//	if (location.x >= 960.0f)
+//	{
+//		location.x = 0.0f;
+//	}
 
-	//敵が端に行った時、左恥に戻る(移動距離がリセット)
-	if (location.x >= 960.0f)
-	{
-		location.x = 0.0f;
-	}
-	
+	//移動処理
+	Movement();
+
 	//アニメージョン制御
 	AnimeControl();
 }
@@ -61,19 +67,24 @@ void Enemy::Update()
 //描画処理
 void Enemy::Draw()const
 {
-	//プレイヤー画像の描画
+	int flig_flag = FALSE;
+
+	//進行方向によって、反転状態を決定する
+	if (direction.x > 0.0f)
+	{
+		flig_flag = FALSE;
+	}
+	else
+	{
+		flig_flag = TRUE;
+	}
+
+
+	//情報を基にハコテキ画像を描画する
 	DrawRotaGraphF(location.x, location.y, 1.0, radian, image, TRUE, flip_flag);
 
-	//デバック用
-#ifdef _DEBUG
-
-		//当たり判定の可視化
-	Vector2D ul = location - (scale / 2.0f);
-	Vector2D br = location + (scale / 2.0f);
-
-	DrawBoxAA(ul.x, ul.y, br.x, br.y, GetColor(255, 0, 0), FALSE);
-
-#endif
+	//親クラスの描画処理を呼び出す
+	__super::Draw();
 }
 
 
@@ -85,25 +96,30 @@ void Enemy::Finalize()
 	DeleteGraph(animation[1]);
 }
 
-
-
-//位置情報を設定する
-void Enemy::SetLocation(Vector2D location)
+//当たり判定通知
+void Enemy::OnHitCollision(GameObject* hit_object)
 {
-	this->location = location;
+	//当たった時の処理
+	direction = 0.0f;
 }
 
-//位置情報を取得する
-Vector2D Enemy::GetLocation()const
+//移動処理
+void Enemy::Movement()
 {
-	return  this->location;
+	//画面外に達したら進行方向を反転する
+	if (((location.x + direction.x) < box_size.x) ||
+		(640.0f - box_size.x) < (location.x + direction.x))
+	{
+		direction.x *= -1.0f;
+	}
 
-}
-
-//ボックスのサイズを取得する
-Vector2D Enemy::GetBoxSize()const
-{
-	return  this->box_size;
+	if (((location.y + direction.y) < box_size.y) ||
+		(640.0f - box_size.y) < (location.y + direction.y))
+	{
+		direction.y *= -1.0f;
+	}
+	//進行方向に向かって、位置座標を変更する
+	location += direction;
 
 }
 
