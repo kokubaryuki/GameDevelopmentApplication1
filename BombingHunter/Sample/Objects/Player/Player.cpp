@@ -1,4 +1,5 @@
 #include"Player.h"
+#include"../../Objects/Bullet/Bullet.h"
 #include"../../Utility/InputControl.h"
 #include"DxLib.h"
 
@@ -35,9 +36,14 @@ void Player::Initialize()
 	//大きさの設定
 	scale =64.0f;
 
+	//当たり判定の大きさを設定
+	box_size = 64.0f;
+
+	//プレイヤーの位置
+	location = 500.0f;
+
 	//初期化処理
 	image = animation[0];
-
 
 }
 
@@ -63,10 +69,12 @@ void Player::Draw()const
 #ifdef _DEBUG
 
 		//当たり判定の可視化
-		Vector2D ul = location - (scale / 2.0f);
-	    Vector2D br = location + (scale / 2.0f);
+	Vector2D box_collision_upper_left = location - (box_size / 2.0f);
+	Vector2D box_collision_lower_right = location + (box_size/ 2.0f);
 
-		DrawBoxAA(ul.x,ul.y,br.x, br.y,GetColor(255, 0, 0), FALSE);
+		DrawBoxAA(box_collision_upper_left.x, box_collision_upper_left.y,
+			box_collision_lower_right.x, box_collision_lower_right.y,
+			GetColor(255, 0, 0), FALSE);
 
 #endif
 }
@@ -84,8 +92,6 @@ void Player::Finalize()
 //当たり判定通知処理
 void Player::OnHitCollision(GameObject* hit_object)
 {
-	
-
 	//当たった時の処理
 }
 

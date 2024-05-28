@@ -35,16 +35,15 @@ void Enemy::Initialize()
 	//ハコテキの位置
 	location = 480.0f;
 
-	//ボックスの位置の設定
-	box_size = Vector2D(0.0f,490.0f);
+	//当たり判定の大きさを設定
+	box_size = 64.0f;
 
 	//初期化処理
 	image = animation[0];
 
 	//初期化進行方向の設定
-	direction = Vector2D(2.0f,-0.5f);
+	direction = Vector2D(1.0f, -0.0f);
 }
-
 
 //更新処理
 void Enemy::Update()
@@ -61,6 +60,7 @@ void Enemy::Update()
 //描画処理
 void Enemy::Draw()const
 {
+	//画像反転グラフ
 	int flig_flag = FALSE;
 
 	//進行方向によって、反転状態を決定する

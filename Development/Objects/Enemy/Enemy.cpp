@@ -46,14 +46,14 @@ void Enemy::Initialize()
 //更新処理
 void Enemy::Update()
 {
-//	//敵が右から左に移動するときの速さを設定するところ
-//	location.x += 1.0f;
-//
-//	//敵が端に行った時、左恥に戻る(移動距離がリセット)
-//	if (location.x >= 960.0f)
-//	{
-//		location.x = 0.0f;
-//	}
+	//敵が右から左に移動するときの速さを設定するところ
+	location.x += 1.0f;
+
+	//敵が端に行った時、左恥に戻る(移動距離がリセット)
+	if (location.x >= 960.0f)
+	{
+		location.x = 0.0f;
+	}
 
 	//移動処理
 	Movement();

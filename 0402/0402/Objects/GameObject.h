@@ -1,16 +1,17 @@
 #pragma once
 
 
-#include "../0402/Vector2D.h"
+#include "../Utility/Vector2D.h"
 
 //ゲームオブジェクトクラス（画面に出てくるオブジェクトの親クラス）
 
 class GameObject
 {
-	Vector2D location;
-	Vettor2D box_size;
-	int image;
-	int flip_flag;
+protected:
+	Vector2D location;  //位置座標情報
+	Vector2D box_size;  //短形の大きさ
+	int image;         //描画する画像データ
+	int flip_flag;     //画像反転グラフ
 
 public:
 	GameObject();
@@ -29,7 +30,7 @@ public:
 	Vector2D GetLocation() const;
 	Vector2D GetBoxSize() const;
 
-	void SetLocation(const Vector2D\& location);
+	void SetLocation(const Vector2D& location);
 
 
 

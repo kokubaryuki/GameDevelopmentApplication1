@@ -147,8 +147,8 @@
     <ClCompile Include="Objects\GameObject.cpp" />
     <ClCompile Include="Utility\InputControl.cpp" />
     <ClCompile Include="Utility\ResourceManager.cpp" />
-    <ClCompile Include="Utility\UserTemplate.cpp" />
     <ClCompile Include="Utility\Vector2D.cpp" />
+    <ClCompile Include="AppMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Objects\Player\Player.h" />

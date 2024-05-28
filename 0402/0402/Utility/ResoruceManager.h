@@ -17,7 +17,7 @@ struct MaterialParam
 };
 
 //リソース管理クラス
-class  ResourceManager 
+class ResourceManager
 {
 private:
 	//自クラスのポインタ（アドレス先に実体がある）
@@ -25,6 +25,9 @@ private:
 
 	//画像コンテナ
 	std::map<std::string, std::vector<int>> images_container;
+
+	//音源コンテナ
+	std::map<std::string, std::vector<int>> sound_container;
 
 private:
 	//自クラスのメンバでしか生成できないようにする
@@ -39,6 +42,10 @@ public:
 	~ResourceManager() = default;
 
 public:
+
+
+	static ResourceManager* GetInstance();
+
 	///<summary>
 	///リソース管理クラスのインスタンス取得処理
 	/// <summary>
@@ -57,17 +64,16 @@ public:
 	*return 読み込んだ画像ハンドルのstd::vector配列
 	*/
 
-	const std::vector<int>& GetImages(std::string flie_name, int all_num = 1,
-		int num_x = 1, int num_y = 1, int size_x = 0, int size_y0);
 
-	const std::vector<int>& GetImages(const char* flie_name, int all_num = 1,
-		int num_x = 1, int num_y = 1, int size_x = 0, int size_y0);
-	const std::vector<int>& GetImages(MaterialParam);
+	//画像
+	const std::vector<int>& GetImages(std::string flie_name, int all_num = 1,int num_x = 1, int num_y = 1, int size_x = 0, int size_y= 0);
+	const std::vector<int>& GetImages(const char* flie_name, int all_num = 1,int num_x = 1, int num_y = 1, int size_x = 0, int size_y= 0);
+	const std::vector<int>& GetImages(MaterialParam element);
 
-	/**
-	*画像ハンドルを読込みリソースを作成する
-	*@param file_name ファイルパス
-	*/
+	//音源
+	const std::vector<int>& GetSounds(std::string flie_name, int all_num = 1, int num_x = 1, int num_y = 1, int size_x = 0, int size_y = 0);
+	const std::vector<int>& GetSounds(const char* flie_name, int all_num = 1, int num_x = 1, int num_y = 1, int size_x = 0, int size_y = 0);
+	const std::vector<int>& GetSounds(MaterialParam element);
 
 	/**
 	*すべての画像を削除する
@@ -93,7 +99,7 @@ private:
 	*@param size_y     縦のサイズ(px)
 	*/
 
-	void CreateImagesResurce(std::string file_name, int all_num, int num_x,
+	void CreateImagesResource(std::string file_name, int all_num, int num_x,
 		int num_y, int size_x, int size_y);
 
 

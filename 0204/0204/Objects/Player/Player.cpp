@@ -26,9 +26,9 @@ void Player::Initialize()
 
 	ResourceManager* rm = GetResourceManager();
 	std::vector<int>tmp;
-	tmp = rm->GetImage("Resource/Images/Tri-pilot/1.pug");
+	tmp = rm->GetImage("Resource/Images/Tri-pilot/1.png");
 	animation_image.push_back(tmp[0]);
-	tmp = rm->GetImage("Resource/Images/Tri-pilot/2.pug");
+	tmp = rm->GetImage("Resource/Images/Tri-pilot/2.png");
 	animation_image.push_back(tmp[0]);
 
 	image = animation_image[0];
@@ -64,9 +64,9 @@ void Player::Movement()
 	{
 		direction = -1.0f;
 	}
-	else if(InputControl::GetKey(KEY_INPUT_LEFT))
+	else if(InputControl::GetKey(KEY_INPUT_RIGHT))
 	{
-			direction = 1.0f;
+			direction = 1.0f; 
 	}
 
 	if (direction != 0.0f)
@@ -115,7 +115,7 @@ void Player::AnimationControl()
 
 		if (image == animation_image[0])
 		{
-			image == animation_image[1];
+			image = animation_image[1];
 		}
 		else
 		{

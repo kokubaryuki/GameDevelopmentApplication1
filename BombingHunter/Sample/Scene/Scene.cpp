@@ -1,6 +1,7 @@
 #include"Scene.h"
 #include"../Objects/Player/Player.h"
 #include"../Objects/Enemy/Enemy.h"
+#include"../Objects/Bullet/Bullet.h"
 #include"../Utility/InputControl.h"
 #include"DxLib.h"
 
@@ -30,7 +31,7 @@ void Scene::Initialize()
 	}
 
 	//プレイヤーを生成する
-	CreateObject<Player>(Vector2D(320.0f, 240.0f));
+	CreateObject<Player>(Vector2D(400.0f, 400.0f));
 	//敵の位置情報
 	CreateObject<Enemy>(Vector2D(400.0f, 400.0f));
 }
@@ -53,12 +54,12 @@ void Scene::Update()
 			HitCheckObject(objects[i], objects[j]);
 		}
 	}
-
+	Vector2D velocity = 0.0f;
 	//Zキーを押したら、敵を生成する
-	/*if (InputControl::GetKeyDown(KEY_INPUT_Z))
+	if (InputControl::GetKeyDown(KEY_INPUT_Z))
 	{
-		CreateObject<Enemy>(Vector2D(100.0f, 400.0f));
-	}*/
+		CreateObject<Bullet>(Vector2D(400.0f, 100.0f));
+	}
 
 }
 
@@ -104,7 +105,7 @@ void Scene::HitCheckObject(GameObject* a, GameObject* b)
 	Vector2D diff = a->GetLocation() - b->GetLocation();
 
 	//二つのオブジェクトの当たりの判定の大きさを取得
-	Vector2D box_size = (a->GetLocation() + b->GetLocation()) / 2.0f;
+	Vector2D box_size = (a->GetBoxSize() + b->GetBoxSize()) / 2.0f;
 
 	//距離より大きさが大きい場合、Hit判定とする
 	if ((fabsf(diff.x) < box_size.x) && (fabsf(diff.y) < box_size.y))

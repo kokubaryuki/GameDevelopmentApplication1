@@ -1,13 +1,15 @@
 #include"GameObject.h"
+#include"Player/Player.h"
+#include"Enemy/Enemy.h"
 #include"DxLib.h"
 
 //コンストラクタ
 GameObject::GameObject():
 location(0.0f),
-scale(0.0),
+scale(0.0f),
 radian(0.0),
-image(0),
-sound(0)
+image(NULL),
+sound(NULL)
 
 {
 
@@ -36,7 +38,7 @@ void GameObject::Update()
 //描画処理
 void GameObject::Draw()const
 {
-	//当たり判定
+	//当たり判定の可視化
 #ifdef D_PIVOT_CENTER
 	Vector2D lt = location - (box_size / 2.0f);
 	Vector2D br = location + (box_size / 2.0f);
@@ -82,6 +84,8 @@ Vector2D GameObject::GetBoxSize()const
 {
 	return box_size;
 }
+
+
 
 
 

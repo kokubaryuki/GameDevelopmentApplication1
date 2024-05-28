@@ -4,11 +4,11 @@
 #define D_KEYCODE_MAX (256)//キーコード最大数
 
 //入力制御クラス
-class Inputcontrol
+class InputControl
 {
 private:
 //自クラスのポインタ（アドレスの先ｎインスタンスを生成する）
-	static Inputcontrol* instance;
+	static InputControl* instance;
 
 	//キーボード入力値
 	char now_key[D_KEYCODE_MAX]; //現在の入力値
@@ -17,22 +17,22 @@ private:
 private:
 	//コンストラクタをprivateにすることで、
 	//自クラスのメンバ関数でしかインスタンスを生成できないようにする
-	Inputcontrol() = default;
+	InputControl() = default;
 
 	//コピーガード
 	//クラス外でインスタンスを生成して渡すことができないようにする
-	Inputcontrol(Inputcontrol& v) = delete;
-	Inputcontrol& operator=(const Inputcontrol& v) = delete;
+	InputControl(InputControl& v) = delete;
+	InputControl& operator=(const InputControl& v) = delete;
 	//~コピーガード
 
 public:
-	~Inputcontrol() = default;
+	~InputControl() = default;
 
 public:
 	//インスタンス取得する処理
-	static Inputcontrol* GetInstance();
+	static InputControl* GetInstance();
 	//インスタンス削除する処理
-	static void Deleteinstance();
+	static void DeleteInstance();
 
 public:
 	//キー入力更新処理

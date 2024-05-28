@@ -141,6 +141,7 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\dxlib</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\dxlib</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="Objects\Bullet\Bullet.cpp" />
     <ClCompile Include="Objects\Enemy\Enemy.cpp" />
     <ClCompile Include="Objects\GameObject.cpp" />
     <ClCompile Include="Objects\Player\Player.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="Utility\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Objects\Bullet\Bullet.h" />
     <ClInclude Include="Objects\Enemy\Enemy.h" />
     <ClInclude Include="Objects\GameObject.h" />
     <ClInclude Include="Objects\Player\Player.h" />

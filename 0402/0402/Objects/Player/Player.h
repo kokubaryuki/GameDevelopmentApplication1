@@ -1,14 +1,14 @@
 #pragma once
 
-#include "../0402/GameObject.h"
-#include<vector>
+#include "../GameObject.h"
+#include <vector>
 
 class Player :public GameObject
 {
 private:
 	Vector2D velocity;//加速度
 	std::vector<int>animation_data;//アニメーションデータ
-	int animation_const; //アニメーションの時間
+	int animation_count;           //アニメーションの時間
 
 public:
 	Player();
